@@ -29,7 +29,8 @@ public class MediaScannerPlugin extends CordovaPlugin {
         if (action.equals(ACTION)) {
             /* Invoke the system's media scanner to add your photo to the Media Provider's database,
             * making it available in the Android Gallery application and to other apps. */
-            cordova.getActivity().sendBroadcast(new Intent(Intent.ACTION_MEDIA_MOUNTED, Uri.parse("file:///mnt/sdcard"))); 
+            cordova.getActivity().sendBroadcast(new Intent(Intent.ACTION_MEDIA_MOUNTED,
+            Uri.parse("file://"+ Environment.getExternalStorageDirectory())));
 
             callbackContext.success();
 
